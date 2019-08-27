@@ -5,7 +5,7 @@ function Xcomponent(props) {
     console.log(props)
     return (
         <div>
-             <h1> Increment X : {props.valuex} <button>Increment Y</button> </h1>
+             <h1> Increment X : {props.valuex} <button onClick={props.incrementValueY}>Increment Y</button> </h1>
         </div>
     )
 }
@@ -15,5 +15,9 @@ const mapStateToProps=(state)=>{
         valuex:state.valuex
     }
 }
-
-export default connect(mapStateToProps)(Xcomponent)
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        incrementValueY:()=>dispatch({type:"incrementY"})
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Xcomponent)
