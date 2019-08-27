@@ -3,7 +3,7 @@ const initial_state={
     valuey:0
 }
 
-export default Reducer(state=initial_state,action){
+export default function Reducer(state=initial_state,action){
     switch(action.type){
         case "incrementY":
             return{
